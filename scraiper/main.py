@@ -74,13 +74,17 @@ def process_job_ads(job_ads, start_number, seen_jobs):
 
 @log_errors
 def load_config():
-    with open('config.json', 'r', encoding='utf-8') as config_file:
+    config_path = os.path.join(project_root, 'config.json')
+    with open(config_path, 'r', encoding='utf-8') as config_file:
         return json.load(config_file)
+
 
 @log_errors
 def load_valid_cities():
-    with open('./data/valid_cities.json', 'r', encoding='utf-8') as f:
+    valid_cities_path = os.path.join(project_root, 'data', 'valid_cities.json')
+    with open(valid_cities_path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
 
 @log_errors
 def main():
